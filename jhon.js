@@ -16,6 +16,8 @@ let capturarvalor = document.getElementById("valor").value;
      //limpiar input
      document.getElementById("clave").value = "";
      document.getElementById("valor").value = "";
+
+     
 }
 
 
@@ -36,6 +38,8 @@ function borrarLocal() {
 
     //limpiar input
     document.getElementById("claveEliminar").value = "";
+
+    document.getElementById("claveEliminar").focus();
     
 }
 
@@ -43,9 +47,26 @@ function borrarLocal() {
 ////////////////////////////////////////////////////////////////////////////
 let EliminarTodoLocalStorage = document.getElementById("elimarTodo");
 
-EliminarTodoLocalStorage.addEventListener("click",borrarTodoLocal)
+EliminarTodoLocalStorage.addEventListener("click",borrarTodoLocal);
 
 function borrarTodoLocal(){
 
     localStorage.clear();
+}
+////////////////////////////////////////////////////////////////////////////////
+
+let actibarBotonObtener = document.getElementById("Obtener_localStorage");
+actibarBotonObtener.addEventListener("click",recogerLocal);
+
+
+function recogerLocal(){
+let palabra = document.getElementById("palabraObtener").value;
+
+let palabraLocalEncontrada = localStorage.getItem(palabra);
+
+document.getElementById("obtenerLocal").innerHTML = palabraLocalEncontrada;
+//limpiar input
+document.getElementById("palabraObtener").value = "";
+//mantener curos
+document.getElementById("palabraObtener").focus();
 }
