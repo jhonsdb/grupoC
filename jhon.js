@@ -1,11 +1,25 @@
+
 //obtener id del html
 let activarBoton = document.getElementById("crear");
 //agregar evento al boton
 activarBoton.addEventListener("click", crearLocal);
 
 function crearLocal() {
-    localStorage.setItem("nombre", "Jhon Stiven");
+
+let capturarClave = document.getElementById("clave").value;
+
+let capturarvalor = document.getElementById("valor").value;
+
+
+    localStorage.setItem(capturarClave,capturarvalor);
+
+     //limpiar input
+     document.getElementById("clave").value = "";
+     document.getElementById("valor").value = "";
 }
+
+
+
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -15,5 +29,23 @@ let botonBorrar = document.getElementById("eliminar");
 botonBorrar.addEventListener("click", borrarLocal);
 
 function borrarLocal() {
-    localStorage.removeItem("nombre");
+
+    let eliminarLocal = document.getElementById("claveEliminar").value;
+
+    localStorage.removeItem(eliminarLocal);
+
+    //limpiar input
+    document.getElementById("claveEliminar").value = "";
+    
+}
+
+
+////////////////////////////////////////////////////////////////////////////
+let EliminarTodoLocalStorage = document.getElementById("elimarTodo");
+
+EliminarTodoLocalStorage.addEventListener("click",borrarTodoLocal)
+
+function borrarTodoLocal(){
+
+    localStorage.clear();
 }
